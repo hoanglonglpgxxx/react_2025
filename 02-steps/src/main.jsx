@@ -7,6 +7,14 @@ import "./index.css";
 const messages = ["Learn React ⚛️", "Apply for jobs 💼", "Invest your new income 🤑"];
 
 function App() {
+  return (
+    <>
+      <Steps />
+    </>
+  );
+}
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   const btnStyle = { backgroundColor: "#7950f2", color: "#fff" };
@@ -25,7 +33,6 @@ function App() {
       setStep(1);
     }
   }
-
   return (
     <>
       <button className="close" onClick={() => setIsOpen(!isOpen)}>
