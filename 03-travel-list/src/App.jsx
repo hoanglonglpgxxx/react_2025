@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: false },
-  { id: 3, description: "Books", quantity: 5, packed: true },
-];
-
 function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} />
       <Stats />
     </div>
   );
@@ -21,7 +21,7 @@ function App() {
 function Logo() {
   return <h1>🌴 Far away </h1>;
 }
-function Form() {
+function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
 
@@ -31,8 +31,7 @@ function Form() {
     if (!description) return;
 
     const newItem = { description, quantity, packaged: false, id: Date.now() };
-    initialItems.push(newItem);
-
+    onAddItems(newItem);
     setDescription("");
     setQuantity("");
   }
@@ -58,17 +57,26 @@ function Form() {
     </form>
   );
 }
-function PackingList() {
+
+Form.propTypes = {
+  onAddItems: PropTypes.func.isRequired,
+};
+
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
+        {items.map((item) => (
           <Item key={item.id} item={item} />
         ))}
       </ul>
     </div>
   );
 }
+PackingList.propTypes = {
+  items: PropTypes.array.isRequired,
+};
+
 function Item({ item }) {
   return (
     <li>
