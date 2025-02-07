@@ -8,11 +8,25 @@ function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleDeleteItem(itemId) {
+    setItems((items) => items.filter((item) => item.id !== itemId));
+  }
+
+  function handleToggleItem(itemId) {
+    setItems((items) =>
+      items.map((item) => (item.id === itemId ? { ...item, packed: !item.packed } : item))
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} />
+      <PackingList
+        items={items}
+        handleDeleteItem={handleDeleteItem}
+        handleToggleItem={handleToggleItem}
+      />
       <Stats />
     </div>
   );
@@ -62,12 +76,17 @@ Form.propTypes = {
   onAddItems: PropTypes.func.isRequired,
 };
 
-function PackingList({ items }) {
+function PackingList({ items, handleDeleteItem, handleToggleItem }) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Item
+            key={item.id}
+            item={item}
+            onDeleteItem={handleDeleteItem}
+            onToggleItem={handleToggleItem}
+          />
         ))}
       </ul>
     </div>
@@ -75,20 +94,25 @@ function PackingList({ items }) {
 }
 PackingList.propTypes = {
   items: PropTypes.array.isRequired,
+  handleDeleteItem: PropTypes.func.isRequired,
+  handleToggleItem: PropTypes.func.isRequired,
 };
 
-function Item({ item }) {
+function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li>
+      <input type="checkbox" value={item.packed} onChange={() => onToggleItem(item.id)} />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
-      <button>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
 Item.propTypes = {
   item: PropTypes.object.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
+  onToggleItem: PropTypes.func.isRequired,
 };
 function Stats() {
   return (
