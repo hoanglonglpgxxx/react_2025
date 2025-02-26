@@ -17,7 +17,6 @@ function App() {
 function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
-  const btnStyle = { backgroundColor: "#7950f2", color: "#fff" };
   function handlePrev() {
     if (step > 1) {
       setStep(step - 1);
@@ -50,17 +49,28 @@ function Steps() {
             </p>
 
             <div className="buttons">
-              <button style={btnStyle} onClick={handlePrev}>
-                Previous
-              </button>
-              <button style={btnStyle} onClick={handleNext}>
-                Next
-              </button>
+              <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrev}>
+                Previous <span>!!</span>
+              </Button>
+              <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
+                Next <span>??</span>
+              </Button>
             </div>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: "${bgColor}", color: "${textColor}" }}
+      onClick={handleNext}
+    >
+      {children}
+    </button>
   );
 }
 
