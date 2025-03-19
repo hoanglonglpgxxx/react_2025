@@ -38,3 +38,8 @@ function handleTripleInc() {
 
 - Chỉ trong React 18+ mới có auto batch event trong timeouts, promises và native events(set event từ DOM)
 - Nếu giá trị state hiện tại === giá trị muốn set => không re-render CPN
+
+## How events work in React ????
+
+- gán event listener vào root
+- react performs event delegation cho all events trong application

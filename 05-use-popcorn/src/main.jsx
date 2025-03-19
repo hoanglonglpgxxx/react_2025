@@ -5,8 +5,8 @@ import TextExpender from "./TextExpender.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App /> */}
-    <TextExpender>
+    <App />
+    {/* <TextExpender>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aspernatur illum in
       officiis, inventore repellat, fugit autem vel voluptatem fugiat ex minus iste
       quibusdam id quia nobis fuga accusantium? Blanditiis?
@@ -20,6 +20,6 @@ createRoot(document.getElementById("root")).render(
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aspernatur illum in
       officiis, inventore repellat, fugit autem vel voluptatem fugiat ex minus iste
       quibusdam id quia nobis fuga accusantium? Blanditiis?
-    </TextExpender>
+    </TextExpender> */}
   </StrictMode>
 );
