@@ -10,3 +10,5 @@
 - The problem when pass data through several CPNs
 
 ## CPN Composition
+
+## useEffect cleanup: run khi effect được chạy lại hoặc CHỈ SAU khi CPN unmounted
