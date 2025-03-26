@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import StarRating from "./StarRating";
 import { useEffect } from "react";
@@ -14,7 +14,11 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [watched, setWatched] = useState([]);
+
+  // const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(() => {
+    return JSON.parse(localStorage.getItem("watched")) ?? [];
+  });
 
   function handleSelectMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -36,6 +40,13 @@ export default function App() {
   function handleDeleteWatchedMovie(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
+
+  useEffect(
+    function () {
+      localStorage.setItem("watched", JSON.stringify([...watched]));
+    },
+    [watched]
+  );
 
   useEffect(
     function () {
@@ -116,6 +127,7 @@ export default function App() {
             <MovieDetail
               selectedId={selectedId}
               watched={watched}
+              key={selectedId}
               onCloseMovie={handleCloseMovie}
               onAddWatched={handleAddWatched}
             />
@@ -177,6 +189,24 @@ function NumResults({ movies }) {
 }
 
 function Search({ query, setQuery }) {
+  const searchInput = useRef(null);
+
+  useEffect(
+    function () {
+      function callback(e) {
+        if (document.activeElement === searchInput.current) return;
+
+        if (e.code === "Enter") {
+          searchInput.current.focus();
+          setQuery("");
+        }
+      }
+      document.addEventListener("keydown", callback);
+      return () => document.addEventListener("keydown", callback);
+    },
+    [setQuery]
+  );
+
   return (
     <input
       className="search"
@@ -184,6 +214,7 @@ function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={searchInput}
     />
   );
 }
@@ -354,7 +385,7 @@ function MovieDetail({ selectedId, watched, onCloseMovie, onAddWatched }) {
             <div className="rating">
               {!isWatched ? (
                 <>
-                  <StarRating maxRating={10} onSetRating={setUserRating} />
+                  <StarRating key={title} maxRating={10} onSetRating={setUserRating} />
 
                   {userRating > 0 && (
                     <button className="btn-add" onClick={handleAdd}>
