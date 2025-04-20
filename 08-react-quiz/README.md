@@ -12,3 +12,4 @@
 - cần có **reducer**: hàm chứa mọi logic để update state, LUÔN trả về state kế tiếp, nhận vào state hiện tại và action,giống setState() nhưng mạnh hơn
 - **action** là obj mô tả cách update state
 - **dispatch**: hàm dùng để trigger state updates, bằng cách gửi **actions** từ **event handlers** đến **reducer**
+  ✅ Khi nào dùng useState?
