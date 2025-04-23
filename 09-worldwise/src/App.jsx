@@ -7,6 +7,7 @@ import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CitiesList from "./components/CityList";
 import { useEffect, useState } from "react";
+import CountriesList from "./components/CountriesList";
 
 const BASE_URL = "http://localhost:7000";
 function App() {
@@ -43,7 +44,12 @@ function App() {
               path="cities"
               element={<CitiesList cities={cities} isLoading={isLoading} />}
             ></Route>
-            <Route path="countries" element={<p>bsdasd</p>}></Route>
+            <Route
+              path="countries"
+              element={
+                <CountriesList cities={cities} isLoading={isLoading}></CountriesList>
+              }
+            ></Route>
             <Route path="form" element={<p>form</p>}></Route>
           </Route>
           <Route path="*" element={<PageNotFound />} />
