@@ -1,6 +1,6 @@
 # REACT PROJECTS
 
-# LEARNING VID 1 FOLDER 18
+# LEARNING VID 14 FOLDER 18
 
 NHỚ COMMIT NHA!
 
@@ -18,4 +18,6 @@ XEM LẠI VID 4-10 folder 11 ĐỂ NẮM HOW REACT WORKS
   "body": ["import styles from './${TM_FILENAME_BASE}.module.css'"],
   "description": "Import CSS Module as `styles`"
   }
--
+- npm i react-leaflet leaflet
+- Dùng context API để pass trực tiếp prop từ cha đến con cấp nhỏ hơn thay vì truyền từ từ theo từng cấp
+  -- Khi update value, các CPN con nhận value đó cũng re-render

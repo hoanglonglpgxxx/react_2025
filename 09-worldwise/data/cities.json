@@ -1,6 +1,7 @@
 {
   "cities": [
     {
+      "id": 73930385,
       "cityName": "Lisbon",
       "country": "Portugal",
       "emoji": "🇵🇹",
@@ -9,10 +10,10 @@
       "position": {
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
-      },
-      "id": 73930385
+      }
     },
     {
+      "id": 17806751,
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -21,10 +22,10 @@
       "position": {
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
-      },
-      "id": 17806751
+      }
     },
     {
+      "id": 12345678,
       "cityName": "Hanoi",
       "country": "Vietnam",
       "emoji": "🇻🇳",
@@ -33,10 +34,10 @@
       "position": {
         "lat": 21.028511,
         "lng": 105.804817
-      },
-      "id": 12345678
+      }
     },
     {
+      "id": 87654321,
       "cityName": "Ho Chi Minh City",
       "country": "Vietnam",
       "emoji": "🇻🇳",
@@ -45,10 +46,10 @@
       "position": {
         "lat": 10.823099,
         "lng": 106.629664
-      },
-      "id": 87654321
+      }
     },
     {
+      "id": 98443197,
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -57,8 +58,7 @@
       "position": {
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
-      },
-      "id": 98443197
+      }
     }
   ]
 }

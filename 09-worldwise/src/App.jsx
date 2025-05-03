@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Product from "./pages/Product";
@@ -11,30 +10,11 @@ import CitiesList from "./components/CityList";
 import CountriesList from "./components/CountriesList";
 import City from "./components/City";
 import Form from "./components/Form";
+import { CitiesProvider } from "./context/CitiesContext";
 
-const BASE_URL = "http://localhost:7000";
 function App() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(function () {
-    async function fetchCities() {
-      try {
-        setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        setCities(data);
-      } catch {
-        alert("error loading data");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchCities();
-  }, []);
-
   return (
-    <div>
+    <CitiesProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -43,23 +23,15 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="app" element={<AppLayout />}>
             <Route index element={<Navigate replace to="cities" />} />
-            <Route
-              path="cities"
-              element={<CitiesList cities={cities} isLoading={isLoading} />}
-            ></Route>
+            <Route path="cities" element={<CitiesList />}></Route>
             <Route path="cities/:id" element={<City />}></Route>
-            <Route
-              path="countries"
-              element={
-                <CountriesList cities={cities} isLoading={isLoading}></CountriesList>
-              }
-            ></Route>
+            <Route path="countries" element={<CountriesList></CountriesList>}></Route>
             <Route path="form" element={<Form />}></Route>
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </CitiesProvider>
   );
 }
 
