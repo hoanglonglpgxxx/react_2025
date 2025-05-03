@@ -25,6 +25,30 @@
       "id": 17806751
     },
     {
+      "cityName": "Hanoi",
+      "country": "Vietnam",
+      "emoji": "🇻🇳",
+      "date": "2027-05-03T10:00:00.000Z",
+      "notes": "Capital city of Vietnam",
+      "position": {
+        "lat": 21.028511,
+        "lng": 105.804817
+      },
+      "id": 12345678
+    },
+    {
+      "cityName": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "emoji": "🇻🇳",
+      "date": "2027-05-03T11:00:00.000Z",
+      "notes": "Largest city in Vietnam",
+      "position": {
+        "lat": 10.823099,
+        "lng": 106.629664
+      },
+      "id": 87654321
+    },
+    {
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
