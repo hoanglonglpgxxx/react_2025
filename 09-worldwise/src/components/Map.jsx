@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
 import {
   useMapEvents,
@@ -12,13 +12,26 @@ import { useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { useCities } from "../context/CitiesContext";
 import { useEffect } from "react";
+import { useGeolocation } from "../hooks/useGeolocation";
+import Button from "./Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const {
+    isLoading: isLoadingPosition,
+    position: loadedPosition,
+    getPosition,
+  } = useGeolocation();
+  const { lat: mapLat, lng: mapLng } = useUrlPosition();
+
+  useEffect(
+    function () {
+      if (loadedPosition) setMapPosition([loadedPosition.lat, loadedPosition.lng]);
+    },
+    [loadedPosition]
+  );
 
   useEffect(
     function () {
@@ -29,13 +42,18 @@ function Map() {
 
   useEffect(
     function () {
-      if (lat && lng) setMapPosition([lat, lng]);
+      if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
     },
-    [lat, lng]
+    [mapLat, mapLng]
   );
 
   return (
     <div className={styles.mapContainer}>
+      {!loadedPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={13}
@@ -63,15 +81,18 @@ function Map() {
 
 function ChangeCenter({ position }) {
   const map = useMap();
-  map.setView(position);
+  map.setView(position, 13);
+
   return null;
 }
 
 function DetectClick() {
   const navigate = useNavigate();
+  const map = useMap();
   useMapEvents({
     click: (e) => {
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      map.setView([e.latlng.lat, e.latlng.lng]);
     },
   });
 }

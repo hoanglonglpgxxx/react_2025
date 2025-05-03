@@ -1,7 +1,7 @@
 {
   "cities": [
     {
-      "id": 73930385,
+      "id": "73930385",
       "cityName": "Lisbon",
       "country": "Portugal",
       "emoji": "🇵🇹",
@@ -13,7 +13,7 @@
       }
     },
     {
-      "id": 17806751,
+      "id": "17806751",
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -25,7 +25,7 @@
       }
     },
     {
-      "id": 12345678,
+      "id": "12345678",
       "cityName": "Hanoi",
       "country": "Vietnam",
       "emoji": "🇻🇳",
@@ -37,7 +37,7 @@
       }
     },
     {
-      "id": 87654321,
+      "id": "87654321",
       "cityName": "Ho Chi Minh City",
       "country": "Vietnam",
       "emoji": "🇻🇳",
@@ -49,7 +49,7 @@
       }
     },
     {
-      "id": 98443197,
+      "id": "98443197",
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -58,6 +58,42 @@
       "position": {
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
+      }
+    },
+    {
+      "id": "86cb",
+      "cityName": "Hanoi",
+      "country": "Viet Nam",
+      "emoji": "🇻🇳",
+      "date": "2025-05-03T19:38:45.931Z",
+      "notes": "abs",
+      "position": {
+        "lat": "21.050700625439255",
+        "lng": "105.85086822509767"
+      }
+    },
+    {
+      "id": "002a",
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-05-03T19:41:57.571Z",
+      "notes": "xad",
+      "position": {
+        "lat": "38.71699210162936",
+        "lng": "-9.15813446044922"
+      }
+    },
+    {
+      "id": "e2ed",
+      "cityName": "Murzuk",
+      "country": "Libya",
+      "emoji": "🇱🇾",
+      "date": "2025-05-03T19:43:54.105Z",
+      "notes": "v",
+      "position": {
+        "lat": "25.48295117535531",
+        "lng": "12.304687500000002"
       }
     }
   ]
