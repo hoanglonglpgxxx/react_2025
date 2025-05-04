@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { useQuestion } from "../context/QuestionContext";
 
-function Timer({ dispatch, secondsRemain }) {
+function Timer() {
+  const { dispatch, secondsRemain } = useQuestion();
   const INTERVAL = 1000;
   const mins = Math.floor(secondsRemain / 60);
   const seconds = secondsRemain % 60;

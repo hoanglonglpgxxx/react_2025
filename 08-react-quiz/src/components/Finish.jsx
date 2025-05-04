@@ -1,6 +1,8 @@
+import { useQuestion } from "../context/QuestionContext";
 import NextButton from "./NextButton";
 
-function Finish({ points, maxPoints, highscore, dispatch }) {
+function Finish() {
+  const { points, maxPoints, highscore, dispatch } = useQuestion();
   const percent = (points / maxPoints) * 100;
   let emoji;
   if (percent === 100) emoji = "🥇";

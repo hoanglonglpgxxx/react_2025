@@ -1,6 +1,9 @@
+import { useQuestion } from "../context/QuestionContext";
 import Options from "./Options";
 
-function curQuestion({ curQuest, dispatch, answer }) {
+function curQuestion() {
+  const { questions, dispatch, answer, index } = useQuestion();
+  const curQuest = questions[index];
   return (
     <div>
       <h4>{curQuest.question} </h4>
