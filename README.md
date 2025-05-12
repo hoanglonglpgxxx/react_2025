@@ -1,6 +1,6 @@
 # REACT PROJECTS
 
-# LEARNING VID 3 FOLDER 19
+# LEARNING VID 3 FOLDER 20
 
 - USEEFFECT RUN 2 LẦN TRONG DEVELOPMENT MODE
 
@@ -23,3 +23,5 @@ XEM LẠI VID 4-10 folder 11 ĐỂ NẮM HOW REACT WORKS
 -Memoization: execute a pure func once, save result in memory, call again will only return value of the previous result (if same input - new input will calc new result)
 
 - **memo** func: used to create a CPN that wont be re-rendered when its parent re-renders(as long as the props stay the same between renders) - only use for HEAVY & SLOW RENDERING CPN
+
+- ctrl ,-> inline suggest -> disable
