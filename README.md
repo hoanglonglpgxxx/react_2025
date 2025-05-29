@@ -27,3 +27,7 @@ XEM LẠI VID 4-10 folder 11 ĐỂ NẮM HOW REACT WORKS
 - **memo** func: used to create a CPN that wont be re-rendered when its parent re-renders(as long as the props stay the same between renders) - only use for HEAVY & SLOW RENDERING CPN
 
 - ctrl ,-> inline suggest -> disable
+
+- KHÔNG nên lưu ảnh trực tiếp trong MongoDB (dù là GridFS hay Base64), nên lưu trong firebase/cloudinary, trong DB chỉ chứa metadata và ảnh dạng array
+- Nếu bạn dùng NestJS, thì nên làm theo cách 2:
+  → Client gửi file lên NestJS → NestJS gửi ảnh đến Cloudinary → lưu URL ảnh vào MongoDB.
