@@ -1,3 +1,4 @@
+@config "../tailwind.config.js";
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
@@ -11,7 +12,7 @@
 
 @layer components {
   .input {
-    @apply w-full rounded-full border border-stone-200 bg-white px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:ring focus:ring-blue-400 focus:outline-none md:px-6 md:py-3;
+    @apply rounded-full border border-stone-200 bg-white px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:ring focus:ring-blue-400 focus:outline-none md:px-6 md:py-3;
   }
 
   .loader {
