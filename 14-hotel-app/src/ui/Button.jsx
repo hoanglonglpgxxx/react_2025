@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { styled, css } from "styled-components";
 
 const sizes = {
   small: css`
@@ -24,7 +24,6 @@ const variations = {
   primary: css`
     color: var(--color-brand-50);
     background-color: var(--color-brand-600);
-
     &:hover {
       background-color: var(--color-brand-700);
     }
@@ -33,7 +32,6 @@ const variations = {
     color: var(--color-grey-600);
     background: var(--color-grey-0);
     border: 1px solid var(--color-grey-200);
-
     &:hover {
       background-color: var(--color-grey-50);
     }
@@ -41,9 +39,20 @@ const variations = {
   danger: css`
     color: var(--color-red-100);
     background-color: var(--color-red-700);
-
     &:hover {
       background-color: var(--color-red-800);
     }
   `,
 };
+
+const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) => !["size", "variation"].includes(prop),
+})`
+  border: none;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  ${(p) => sizes[p.size || "medium"]}
+  ${(p) => variations[p.variation || "primary"]}
+`;
+
+export default Button;
