@@ -4,12 +4,11 @@ const Row = styled.div.withConfig({
   shouldForwardProp: (prop) => !["type"].includes(prop),
 })`
   display: flex;
-  ${(p) => p.type || "vertical"}
   ${(p) =>
     p.type === "horizontal"
       ? css`
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
         `
       : css`
           flex-direction: column;
