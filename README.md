@@ -1,6 +1,6 @@
 # REACT PROJECTS
 
-## LEARNING VID 8 FOLDER 27
+## LEARNING VID 10 FOLDER 27
 
 ## LÀM CẢ BACKEND CHO 14-HOTEL
 
@@ -33,3 +33,7 @@ XEM LẠI VID 4-10 folder 11 ĐỂ NẮM HOW REACT WORKS
 - KHÔNG nên lưu ảnh trực tiếp trong MongoDB (dù là GridFS hay Base64), nên lưu trong firebase/cloudinary, trong DB chỉ chứa metadata và ảnh dạng array
 - Nếu bạn dùng NestJS, thì nên làm theo cách 2:
   → Client gửi file lên NestJS → NestJS gửi ảnh đến Cloudinary → lưu URL ảnh vào MongoDB.
+
+
+
+useMutation là một hook trong thư viện React Query (hoặc các thư viện tương tự như Redux Toolkit) dùng để thực hiện các thao tác thay đổi dữ liệu (như tạo, cập nhật, xóa) trên máy chủ. Không giống useQuery tự động chạy, useMutation cần được gọi thủ công thông qua một hàm được trả về bởi hook. 
